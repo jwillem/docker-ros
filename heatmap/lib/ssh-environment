@@ -1,0 +1,2 @@
+ROS_HOSTNAME=heatmap
+ROS_MASTER_URI=http://master:11311

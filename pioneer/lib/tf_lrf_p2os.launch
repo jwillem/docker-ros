@@ -1,0 +1,7 @@
+<launch>
+        <!-- publish the required transform /base_link -> /laser -->
+        <include file="$(find p2os_launch)/launch/tf_base_link_to_laser.launch" />
+
+        <!-- if you use a sicklms instead of a hokuyo laser: -->
+        <include file="$(find p2os_launch)/launch/sicklms.launch" />
+</launch>

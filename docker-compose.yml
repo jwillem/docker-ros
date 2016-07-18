@@ -1,0 +1,53 @@
+version: '2'
+services:
+  master:
+    container_name: master
+    command: roscore
+    image: ros:indigo-ros-core
+    ports:
+      - "11311:11311"
+
+  pioneer:
+    privileged: True
+    build: ./pioneer
+    container_name: pioneer
+    tty: true
+    environment:
+      - "ROS_HOSTNAME=pioneer"
+      - "ROS_MASTER_URI=http://master:11311"
+    depends_on:
+      - master
+    command: /wait-for-it.sh --timeout=5 master:11311 -- "roslaunch /pioneer.launch"
+
+  slammer:
+    tty: true
+    privileged: True
+    build: ./slammer
+    container_name: slammer
+    volumes:
+      - ./tmp:/tmp
+    depends_on:
+      - master 
+      - pioneer
+    environment:
+      - "ROS_HOSTNAME=slammer"
+      - "ROS_MASTER_URI=http://master:11311"
+    command: /wait-for-it.sh --timeout=5 pioneer:11311 -- "roslaunch /slammer.launch"
+
+  heatmap:
+    tty: true
+    privileged: true
+    build: ./heatmap
+    container_name: heatmap
+    depends_on:
+       - master
+       - pioneer
+    volumes:
+      - ./tmp:/tmp
+      - ./heatmap/src:/root/catkin_ws/src/
+    ports:
+      - "1337:22"
+    environment:
+       - "ROS_HOSTNAME=heatmap"
+       - "ROS_MASTER_URI=http://master:11311"
+    command: /wait-for-it.sh --timeout=5 pioneer:11311 -- "/usr/sbin/sshd -D"

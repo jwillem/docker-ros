@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find p2os_launch)/launch/pioneerMasterLaunchFile.launch" />
+  <node name="enable_motor" pkg="rostopic" type="rostopic" args="pub cmd_motor_state/ p2os_msgs/MotorState 1" output="screen" />
+</launch>

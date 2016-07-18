@@ -1,0 +1,23 @@
+<launch>
+  <node
+    pkg="gmapping"
+    type="slam_gmapping"
+    name="gmapping"
+    args="scan:=scan _particles:=100 _linearUpdate:=0.1 _angularUpdate:=0.03"
+  >
+  </node>
+  <node
+    pkg="map_server"
+    type="map_saver"
+    name="map_server"
+    args="-f /tmp/map_test"
+  >
+  </node>
+  <node
+    pkg="rosbag"
+    type="record"
+    name="rosbag"
+    args="-O /tmp/bag_test /base_scan /tf"
+  >
+  </node>
+</launch>
