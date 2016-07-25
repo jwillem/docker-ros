@@ -5,6 +5,7 @@ RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01
 RUN apt-get update && exec apt-get install -y \
         ros-indigo-navigation \
         ros-indigo-nav2d \
+	ros-indigo-turtlebot-bringup \
 	python-pip \
 	python-dev \ 
 	openssh-server
@@ -30,7 +31,6 @@ RUN bin/bash -c "source /opt/ros/indigo/setup.bash && \
                  mkdir -p ~/catkin_ws/src && \
                  cd ~/catkin_ws/src && \
                  catkin_init_workspace && \
-		 git clone https://github.com/eybee/heatmap.git && \
 		 cd ~/catkin_ws/src/heatmap && \
 		 git checkout jade-devel && \
                  cd ~/catkin_ws/ && \
