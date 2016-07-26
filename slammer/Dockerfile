@@ -6,7 +6,6 @@ RUN apt-get update && exec apt-get install -y \
         ros-indigo-amcl \
         ros-indigo-map-server \
         ros-indigo-move-base \
-	ros-indigo-sicktoolbox* \
         ros-indigo-navigation
 
 RUN echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc

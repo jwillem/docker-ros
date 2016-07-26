@@ -5,7 +5,6 @@ RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01
 RUN apt-get update && exec apt-get install -y \
         ros-indigo-navigation \
         ros-indigo-nav2d \
-	ros-indigo-turtlebot-bringup \
 	python-pip \
 	python-dev \ 
 	openssh-server
@@ -20,7 +19,6 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
-ENV ROS_MATER_URI=http://master:11311
 ENV LC_ALL="C"
 
 EXPOSE 22

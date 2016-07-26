@@ -1,0 +1,3 @@
+[submodule "heatmap/src/heatmap"]
+	path = heatmap/src/heatmap
+	url = https://github.com/jwillem/heatmap.git
