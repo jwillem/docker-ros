@@ -3,10 +3,14 @@ This repository holds the current version of a dockerized ROS-Environment for us
 
 ## Initiale Schritte auf dem Host
 - Zur Installation soll ein Linux-Derivat, z.B. ein aktuelles Ubuntu, auf dem Roboter installiert werden. Dort brauchen wir die Pakete `joystick` und `docker`. 
-- Um auf die Hardware lesend, wie auch schreibend zugreifen zu können, müssen einige Rechte an den Device-Files vorgenommen werden. Folgende Devices brauchen die Rechte 777:
-- `/dev/ttyS0`, `
-- `/dev/ttyUSB0` 
-- `/dev/input/js0` 
+- Um auf die Hardware lesend, wie auch schreibend zugreifen zu können, müssen einige Rechte an den Device-Files vorgenommen werden.
+- Folgende Devices brauchen die Rechte 777:
+
+```
+/dev/ttyS0
+/dev/ttyUSB0
+/dev/input/js0
+```
 
 - Dies ist mit dem Linux-Tool `chmod` zu bewerkstelligen. (bspw. `chmod 777 /dev/input/js0`)
 - Um dies nicht bei jedem Starten des Systems wiederholen zu müssen, bietet sich ein init.d-Skript an. (Weitere Erklärung folgt noch)
