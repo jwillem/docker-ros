@@ -4,7 +4,7 @@
 - [Docker-Ros_Dokumentation.pdf](Docker-Ros_Dokumentation.pdf) (german)
 
 ## Container-Overview
-![container-overview][docker.svg]
+![container-overview][container-overview.png]
 
 ## Initiale Schritte auf dem Host
 - Zur Installation soll ein Linux-Derivat, z.B. ein aktuelles Ubuntu, auf dem Roboter installiert werden. Dort brauchen wir die Pakete `joystick` und `docker`. 
