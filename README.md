@@ -39,6 +39,7 @@
 - Um die grafischen Tools von Ros nutzen zu können, kann zunächst der Heatmap-Container als Basis dienen. Dieser enthält eine Ros-Desktop-Full Installation. Dazu muss man sich per SSH auf diesen Verbinden und das X-Server-Forwarding nutzen.
 - Voraussetzung ist allerdings ein Linux-System mit einem X-Server.
 - `ssh root@192.168.0.142 -X -p 1337` um sich mit dem heatmap-container zu verbinden.
+- Das Passwort lautet `p`.
 - Dort kann man bspw. `rviz` starten.
 - Note:
   - Das X-Forwarding über das Netzwerk kann zum Teil inperformant sein.
