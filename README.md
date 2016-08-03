@@ -18,6 +18,9 @@
 ```
 
 - Dies ist mit dem Linux-Tool `chmod` zu bewerkstelligen. (bspw. `chmod 777 /dev/input/js0`)
+- Oder man fügt den eigenen user zur gruppe `tty` hinzu, dann hat man zumindest die Rechte die tty = seriellen Schnittstellen zu benutzen.
+  - `sudo addgroup [user] tty` user <- pioneer
+  - Man muss sich ein und ausloggen.
 - Um dies nicht bei jedem Starten des Systems wiederholen zu müssen, bietet sich ein init.d-Skript an. (Weitere Erklärung folgt noch)
 - Anschließend soll das docker-ros Repository mit Git geklont werden.
 
